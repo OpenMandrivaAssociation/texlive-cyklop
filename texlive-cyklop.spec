@@ -1,3 +1,9 @@
+# revision 18651
+# category Package
+# catalog-ctan /fonts/cyklop
+# catalog-date 2008-12-15 08:58:20 +0100
+# catalog-license gfl
+# catalog-version 0.915
 Name:		texlive-cyklop
 Version:	0.915
 Release:	1
@@ -123,6 +129,7 @@ Czech fonts).
 %doc %{_texmfdistdir}/doc/fonts/cyklop/GUST-FONT-LICENSE.txt
 %doc %{_texmfdistdir}/doc/fonts/cyklop/MANIFEST.txt
 %doc %{_texmfdistdir}/doc/fonts/cyklop/cyklop-info.pdf
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -133,3 +140,5 @@ Czech fonts).
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
