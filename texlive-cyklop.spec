@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 The Cyclop typeface was designed in the 1920s at the workshop
@@ -49,20 +47,12 @@ TeX and LaTeX including encoding definition files: T1 (ec), T5
 (Vietnamese), OT4, QX, texnansi and nonstandard ones (IL2 for
 Czech fonts).
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -130,7 +120,6 @@ Czech fonts).
 %doc %{_texmfdistdir}/doc/fonts/cyklop/GUST-FONT-LICENSE.txt
 %doc %{_texmfdistdir}/doc/fonts/cyklop/MANIFEST.txt
 %doc %{_texmfdistdir}/doc/fonts/cyklop/cyklop-info.pdf
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -141,5 +130,3 @@ Czech fonts).
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
