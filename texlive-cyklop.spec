@@ -6,7 +6,7 @@
 # catalog-version 0.915
 Name:		texlive-cyklop
 Version:	0.915
-Release:	2
+Release:	3
 Summary:	The Cyclop typeface
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/cyklop
