@@ -1,18 +1,12 @@
-# revision 18651
-# category Package
-# catalog-ctan /fonts/cyklop
-# catalog-date 2008-12-15 08:58:20 +0100
-# catalog-license gfl
-# catalog-version 0.915
 Name:		texlive-cyklop
-Version:	0.915
-Release:	12
+Version:	18651
+Release:	1
 Summary:	The Cyclop typeface
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/cyklop
 License:	GFL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cyklop.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cyklop.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cyklop.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cyklop.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -48,12 +42,12 @@ TeX and LaTeX including encoding definition files: T1 (ec), T5
 Czech fonts).
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -123,24 +117,10 @@ Czech fonts).
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.915-2
-+ Revision: 750759
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 0.915-1
-+ Revision: 718196
-- texlive-cyklop
-- texlive-cyklop
-- texlive-cyklop
-- texlive-cyklop
-
