@@ -1,6 +1,6 @@
 Name:		texlive-cyklop
 Version:	18651
-Release:	1
+Release:	2
 Summary:	The Cyclop typeface
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/cyklop
