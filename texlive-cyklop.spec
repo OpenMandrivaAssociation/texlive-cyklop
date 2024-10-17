@@ -3,7 +3,7 @@ Version:	18651
 Release:	2
 Summary:	The Cyclop typeface
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/cyklop
+URL:		https://www.ctan.org/tex-archive/fonts/cyklop
 License:	GFL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cyklop.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cyklop.doc.r%{version}.tar.xz
