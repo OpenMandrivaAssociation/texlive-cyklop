@@ -1,9 +1,10 @@
 %global tl_name cyklop
 %global tl_revision 77682
+%global tl_version 0.915
 
 Name:		texlive-%{tl_name}
 Epoch:		1
-Version:	0.915
+Version:	%{tl_version}
 Release:	%{tl_revision}.1
 Summary:	The Cyclop typeface
 Group:		Publishing
@@ -13,7 +14,8 @@ Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/cyklop.r%{tl_rev
 Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/cyklop.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 The Cyclop typeface was designed in the 1920s at the workshop of Warsaw
@@ -41,3 +43,10 @@ these fonts in TeX and LaTeX including encoding definition files: T1
 (ec), T5 (Vietnamese), OT4, QX, texnansi and nonstandard ones (IL2 for
 Czech fonts).
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/%{tl_name} <<'TL_DROPIN_EOF'
+# from cyklop:
+Map cyklop.map
+TL_DROPIN_EOF
